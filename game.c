@@ -29,6 +29,7 @@ int getPlayerMove(char board[3][3])
         if (move < 1 || move > 9)
         {
             printf("Invalid move! Please choose a number between 1 and 9.\n");
+            while (getchar() != '\n');
             continue;
         }
 
@@ -80,7 +81,7 @@ int checkdraw(char board[3][3])
     {
         for (size_t j = 0; j < 3; j++)
         {
-            if (board[i][j] != 'X' || board[i][j] != 'O')
+            if (board[i][j] != 'X' && board[i][j] != 'O')
             {
                 return (0);
             }
