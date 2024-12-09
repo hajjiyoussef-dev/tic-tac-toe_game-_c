@@ -47,7 +47,7 @@ The board is represented as a 3x3 grid, where the numbers 1-9 represent the empt
 . **checkWin(board)**: Checks if there is a winner.<br>
 . **checkDraw(board)**: Checks if the game is a draw.<br>
 # Requirements
-. C compiler (e.g., GCC)
+. C compiler (e.g., GCC)<br>
 . Terminal/Command Prompt
 ## License
 . This project is open-source and available under the MIT License. See the LICENSE file for more information.
