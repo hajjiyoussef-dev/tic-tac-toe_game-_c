@@ -1,4 +1,4 @@
-#Tic-Tac-Toe Game in C 
+# Tic-Tac-Toe Game in C 
 <br>
 
 A simple implementation of the classic **Tic-Tac-Toe** game for two players, built using the C programming language. This game allows two players to take turns, and it checks for a winner or a draw. The game board is displayed after each move.
@@ -39,12 +39,13 @@ The board is represented as a 3x3 grid, where the numbers 1-9 represent the empt
 # Code Overview
 **Files**
 **tictactoe.c**: Contains the main logic of the game (board display, input handling, win/draw detection).
-~~Functions~~
-. **displayBoard(board)**: Displays the current game board.
-. **getPlayerMove(board)**: Prompts the current player for their move and validates the input.
-. **updateBoard(board, move, symbol)**: Updates the board with the player's move.
-. **checkWin(board)**: Checks if there is a winner.
-. **checkDraw(board)**: Checks if the game is a draw.
+
+# Functions
+. **displayBoard(board)**: Displays the current game board.<br>
+. **getPlayerMove(board)**: Prompts the current player for their move and validates the input.<br>
+. **updateBoard(board, move, symbol)**: Updates the board with the player's move.<br>
+. **checkWin(board)**: Checks if there is a winner.<br>
+. **checkDraw(board)**: Checks if the game is a draw.<br>
 # Requirements
 . C compiler (e.g., GCC)
 . Terminal/Command Prompt
@@ -54,5 +55,6 @@ The board is represented as a 3x3 grid, where the numbers 1-9 represent the empt
 ## Contributing
 Feel free to fork this repository, make changes, and submit pull requests. Any improvements, bug fixes, or feature requests are welcome!
 
-
-create by [yhajji] 42network 
+```markdown
+## Created by [yhajji] 42 Network
+```
