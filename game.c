@@ -121,7 +121,7 @@ int main(void)
         move = getPlayerMove(board);
         update_board( board,  move, symbol);
 
-        // winner = checkWin(board);
+        winner = checkWin(board);
 
         if (winner != ' ')
         {
