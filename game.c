@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void  displayBord(char board[3][3])
 {
@@ -92,6 +93,38 @@ int checkdraw(char board[3][3])
     
 }
 
+int chooseMode()
+{
+    int mode;
+    printf("Chosse Game  Mode:\n");
+    printf("1: Player vs Player:\n");
+    printf("2: Player vs CPU:\n");
+    printf("Enter ur choice: ");
+    scanf("%d", &mode);
+    while (mode != 1 && mode != 2)
+    {
+        printf("Chosse is invalid!! Please select 1 or 2: ");
+        scanf("%d", &mode);
+    }
+    return (mode);
+}
+
+char getCpuMove(char board[3][3])
+{
+    int move;
+
+    while (1)
+    {
+        move = (rand() % 9) + 1; //random number and % it will produce number between (0 and 8) + 1
+        int row = (move - 1) / 3;
+        int col = (move - 1) % 3;
+        if (board[row][col] != 'X' && board[row][col] != 'O')
+            return move ;
+    }
+    
+
+}
+
 int main(void)
 {
     char board[3][3] =
@@ -105,20 +138,37 @@ int main(void)
     int thePlayer = 1;
     char symbol;
     char winner;
+    int mode;
 
     printf("Welcome to Tic-Tac-Toe! \n");
+    mode = chooseMode();
 
     while (1)
     {
         displayBord(board);
 
         if (thePlayer == 1)
+        {
             symbol = 'X';
+            printf("Player {%d} s turn {%c}: \n", thePlayer, symbol);
+            move = getPlayerMove(board);
+        }
         else
+        {
             symbol = 'O';
-        printf("Player {%d} s turn {%c}: \n", thePlayer, symbol);
+            if (mode == 1)
+            {
+               printf("Player {%d} s turn {%c}: \n", thePlayer, symbol);
+               move = getPlayerMove(board);
+            }
+            else
+            {
+                printf("CPU's turn (O): \n");
+                move = getCpuMove(board);
+                printf("CPU chose: %d\n", move);
+            }
+        }
 
-        move = getPlayerMove(board);
         update_board( board,  move, symbol);
 
         winner = checkWin(board);
@@ -127,10 +177,20 @@ int main(void)
         {
             displayBord(board);
             if (winner == 'X')
+            {
                 thePlayer = 1;
+                printf("player {%d} wins the game Congratulations! \n", thePlayer);
+            }
             else
-                thePlayer = 2;
-            printf("player {%d} wins the game Congratulations! \n", thePlayer);
+            {
+                thePlayer == 2;
+                if (mode == 1)
+                {
+                    printf("player {%d} wins the game Congratulations! \n", thePlayer);
+                }
+                else
+                    printf("CPU wins the game! Better luck next time! \n");
+            }
             break;
         }
 
