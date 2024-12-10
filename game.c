@@ -130,7 +130,7 @@ int main(void)
                 thePlayer = 1;
             else
                 thePlayer = 2;
-            printf("player {%d} wins the game Congratulations! \n", thePlayer);\
+            printf("player {%d} wins the game Congratulations! \n", thePlayer);
             break;
         }
 
