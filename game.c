@@ -27,7 +27,7 @@ int getPlayerMove(char board[3][3])
         printf("enter your move (1-9):");
         scanf("%d" , &move);
 
-        if (move < 1 || move > 9)
+        if ( move < 1 || move > 9 )
         {
             printf("Invalid move! Please choose a number between 1 and 9.\n");
             while (getchar() != '\n');
@@ -56,13 +56,13 @@ void update_board(char board[3][3], int move, char symbol)
 char checkWin(char board[3][3])
 {
     
-    for (size_t i = 0; i < 3; i++)
+    for (size_t i = 0; i < 3; i++) //see the row
     {
         if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
             return (board[i][0]);
     }
 
-    for (size_t i = 0; i < 3; i++)
+    for (size_t i = 0; i < 3; i++) // see the col
     {
         if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
             return (board[0][i]);
