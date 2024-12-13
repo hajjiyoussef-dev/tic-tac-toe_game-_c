@@ -109,20 +109,64 @@ int chooseMode()
     return (mode);
 }
 
-char getCpuMove(char board[3][3])
-{
-    int move;
-
-    while (1)
-    {
-        move = (rand() % 9) + 1; //random number and % it will produce number between (0 and 8) + 1
+int getSmartCpuMove(char board[3][3], char cpuSymbol, char playerSymbol) {
+    
+    for (int move = 1; move <= 9; move++) {
         int row = (move - 1) / 3;
         int col = (move - 1) % 3;
-        if (board[row][col] != 'X' && board[row][col] != 'O')
-            return move ;
+        if (board[row][col] != 'X' && board[row][col] != 'O') {
+            board[row][col] = cpuSymbol; 
+            if (checkWin(board) == cpuSymbol) {
+                board[row][col] = (move + '0'); 
+                return move; 
+            }
+            board[row][col] = (move + '0'); 
+        }
     }
-    
 
+    
+    for (int move = 1; move <= 9; move++) {
+        int row = (move - 1) / 3;
+        int col = (move - 1) % 3;
+        if (board[row][col] != 'X' && board[row][col] != 'O') {
+            board[row][col] = playerSymbol; 
+            if (checkWin(board) == playerSymbol) {
+                board[row][col] = (move + '0'); 
+                return move; 
+            }
+            board[row][col] = (move + '0'); 
+        }
+    }
+
+    
+    if (board[1][1] != 'X' && board[1][1] != 'O') {
+        return 5; 
+    }
+
+   
+    int corners[] = {1, 3, 7, 9};
+    for (int i = 0; i < 4; i++) {
+        int move = corners[i];
+        int row = (move - 1) / 3;
+        int col = (move - 1) % 3;
+        if (board[row][col] != 'X' && board[row][col] != 'O') {
+            return move;
+        }
+    }
+
+    // Play a side if available
+    int sides[] = {2, 4, 6, 8};
+    for (int i = 0; i < 4; i++) {
+        int move = sides[i];
+        int row = (move - 1) / 3;
+        int col = (move - 1) % 3;
+        if (board[row][col] != 'X' && board[row][col] != 'O') {
+            return move;
+        }
+    }
+
+   
+    return -1;
 }
 
 int main(void)
@@ -164,7 +208,7 @@ int main(void)
             else
             {
                 printf("CPU's turn (O): \n");
-                move = getCpuMove(board);
+                move = getSmartCpuMove(board, 'O', 'X');
                 printf("CPU chose: %d\n", move);
             }
         }
@@ -183,7 +227,7 @@ int main(void)
             }
             else
             {
-                thePlayer == 2;
+                thePlayer = 2;
                 if (mode == 1)
                 {
                     printf("player {%d} wins the game Congratulations! \n", thePlayer);
