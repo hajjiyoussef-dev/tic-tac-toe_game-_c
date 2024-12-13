@@ -154,7 +154,7 @@ int getSmartCpuMove(char board[3][3], char cpuSymbol, char playerSymbol) {
         }
     }
 
-    // Play a side if available
+    
     int sides[] = {2, 4, 6, 8};
     for (int i = 0; i < 4; i++) {
         int move = sides[i];
@@ -164,8 +164,6 @@ int getSmartCpuMove(char board[3][3], char cpuSymbol, char playerSymbol) {
             return move;
         }
     }
-
-   
     return -1;
 }
 
