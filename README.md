@@ -38,7 +38,8 @@ The board is represented as a 3x3 grid, where the numbers 1-9 represent the empt
 . The game ends when one player has three of their marks in a row (horizontally, vertically, or diagonally) or when all cells are filled, resulting in a draw.
 
 # New CPU Player Feature
-. CPU Logic: The CPU makes decisions based on the current board state. In this version, it plays a random valid move but can be enhanced in future  updates for smarter gameplay.<br>
+. CPU Logic: The CPU makes decisions based on the current board state. In this version, it plays a random valid move but can be enhanced in future  updates for smarter 
+  gameplay.<br>
 . Single-Player Mode: The CPU automatically takes its turn after the player.
 
 # Code Overview
