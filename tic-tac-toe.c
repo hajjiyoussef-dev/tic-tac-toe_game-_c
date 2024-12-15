@@ -62,7 +62,7 @@ char checkWin(char board[3][3])
             return (board[i][0]);
     }
 
-    for (size_t i = 0; i < 3; i++) // see the col
+    for (size_t i = 0; i < 3; i++) 
     {
         if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
             return (board[0][i]);
