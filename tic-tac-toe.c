@@ -56,7 +56,7 @@ void update_board(char board[3][3], int move, char symbol)
 char checkWin(char board[3][3])
 {
     
-    for (size_t i = 0; i < 3; i++) //see the row
+    for (size_t i = 0; i < 3; i++) 
     {
         if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
             return (board[i][0]);
